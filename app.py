@@ -6,17 +6,14 @@ The sum of these multiples is 23.
 Find the sum of all the multiples of 3 or 5 below 1000.
 '''
 
-def multiples_of_three_and_five(numbers):
+def multiples_of_three_and_five():
     sum = 0
-    for num in numbers:
-        #check number in between 10 to 1000
-        if num >=10 and num <= 1000:
-            #checking numbers are  multiples of 3 or 5
-            if (num % 3) == 0 or (num % 5) == 0:
-                sum = sum + num
+    for i in range(0, 1000):
+        if (i % 3) == 0 or (i % 5) == 0:
+            sum = sum + i
     return sum
 
-#print(multiples_of_three_and_five([3, 5, 6, 9, 20, 18, 40, 3, 100]))
+print(multiples_of_three_and_five())
 
 '''
 
@@ -95,8 +92,8 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 def largest_palindrome_product():
     max_pal = 0
 
-    for i in range(100, 1000-1):
-        for j in range(100, 1000-1):
+    for i in range(100, 999):
+        for j in range(100, 999):
             max_pal = i*j
             if str(max_pal) == str(max_pal)[::-1]:
                 return max_pal
@@ -104,3 +101,15 @@ def largest_palindrome_product():
     return max_pal
 
 print(largest_palindrome_product())
+
+'''
+Problem 5
+Smallest multiple
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+'''
+
+def smallest_positive_number():
+    pass
