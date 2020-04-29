@@ -38,13 +38,36 @@ def even_fibonacci_numbers():
             total += cur
     return total
 
-print(even_fibonacci_numbers())
+#print(even_fibonacci_numbers())
 
 '''
-Largest prime factor
 Problem 3
+Largest prime factor
 The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
+
+
+p = 2
+while (p*p <= n):      
+  if (n % p == 0): 
+    n //= p
+  else: 
+    p += 2 if p>2 else 1   # after 2, consider only odd p
+
+Here's a trace of this algorithm to demonstrate the process of removing prime factors from 
+the number n and leaving the largest prime factor p.
+n=495
+ p      p2   n
+p=2 and 4 ≤ 495: 2 is not a factor so its skipped and p is incremented to 3
+p=3 and 9 ≤ 495: 3 is a factor: n = 165
+p=3 and 9 ≤ 165: 3 is a factor: n = 55
+p=3 and 9 ≤ 55: 3 is not a factor so its skipped and p is incremented to 5
+p=5 and 25 ≤ 55: 5 is a factor: n = 11
+p=5 and 25 ≤ 55: 5 is not a factor so its skipped and p is incremented to 7
+p=7 and 49 ≤ 55: 7 is not a factor so its skipped and p is incremented to 9
+p=9 and 81 not ≤ 55: p is incremented to 11 and the while loop terminates.
+The conditional of the while loop is checked after the loop's last statement.
+
 '''
 
 def largest_prime_factor(number):
@@ -57,5 +80,27 @@ def largest_prime_factor(number):
             if i/1== 0 and i/i == 0:
                 print(i)
 
-
 #print(largest_prime_factor(13195))
+
+'''
+Problem 4
+
+Largest palindrome product
+A palindromic number reads the same both ways. 
+The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+Find the largest palindrome made from the product of two 3-digit numbers.
+
+'''
+
+def largest_palindrome_product():
+    max_pal = 0
+
+    for i in range(100, 1000-1):
+        for j in range(100, 1000-1):
+            max_pal = i*j
+            if str(max_pal) == str(max_pal)[::-1]:
+                return max_pal
+
+    return max_pal
+
+print(largest_palindrome_product())
