@@ -1,3 +1,4 @@
+import math
 '''
 Problem 1
 Multiples of 3 and 5
@@ -67,17 +68,32 @@ The conditional of the while loop is checked after the loop's last statement.
 
 '''
 
-def largest_prime_factor(number):
-    end = number
-    largest_prime_number = []
+def get_factor(number):
+    factor_number = []
 
-    for i in range(1, number):
-        if number%i == 0:
-            if i/1== 0 and i/i == 0:
-                largest_prime_number = largest_prime_number + number[i]
+    for num in range(1, int(math.sqrt(number))+1):
+        if number%num == 0:
+            factor_number.append(num)
+            factor_number.append( num // number )
+    return factor_number
+
+#print(get_factor(24))
+
+def is_prime(number):
+    return len(get_factor(number)) == 2
+
+def largest_prime_factor(number):
+    allfacetors = get_factor(number)
+    largest_prime_number = 0
+
+    for factor in allfacetors:
+        if is_prime(factor) and factor > largest_prime_number:
+            largest_prime_number = factor
     return largest_prime_number
 
-#print(largest_prime_factor(13195))
+print(largest_prime_factor(600851475143))
+
+
 
 '''
 Problem 4
@@ -100,7 +116,7 @@ def largest_palindrome_product():
 
     return max(list_of_palindrome)
 
-print(largest_palindrome_product())
+#print(largest_palindrome_product())
 
 '''
 Problem 5
