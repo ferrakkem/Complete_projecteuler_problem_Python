@@ -13,7 +13,7 @@ def multiples_of_three_and_five():
             sum = sum + i
     return sum
 
-print(multiples_of_three_and_five())
+#print(multiples_of_three_and_five())
 
 '''
 
@@ -68,14 +68,14 @@ The conditional of the while loop is checked after the loop's last statement.
 '''
 
 def largest_prime_factor(number):
-    print(number)
     end = number
     largest_prime_number = []
 
     for i in range(1, number):
         if number%i == 0:
             if i/1== 0 and i/i == 0:
-                print(i)
+                largest_prime_number = largest_prime_number + number[i]
+    return largest_prime_number
 
 #print(largest_prime_factor(13195))
 
@@ -91,14 +91,14 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 def largest_palindrome_product():
     max_pal = 0
-
+    list_of_palindrome = []
     for i in range(100, 999):
         for j in range(100, 999):
             max_pal = i*j
             if str(max_pal) == str(max_pal)[::-1]:
-                return max_pal
+                list_of_palindrome.append(max_pal)
 
-    return max_pal
+    return max(list_of_palindrome)
 
 print(largest_palindrome_product())
 
