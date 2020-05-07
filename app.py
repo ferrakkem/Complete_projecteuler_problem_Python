@@ -91,7 +91,7 @@ def largest_prime_factor(number):
             largest_prime_number = factor
     return largest_prime_number
 
-print(largest_prime_factor(600851475143))
+#print(largest_prime_factor(600851475143))
 
 
 
@@ -127,5 +127,77 @@ What is the smallest positive number that is evenly divisible by all of the numb
 
 '''
 
+def is_divisible(number):
+    for i in range(2, 21):
+        if number%i !=0:
+            return False
+    return True
+
 def smallest_positive_number():
-    pass
+
+    num = 20
+    while True:
+        if is_divisible(num):
+            break
+        num = num + 20
+    return num
+
+#print(smallest_positive_number())
+
+'''
+Problem 6
+Sum square difference 
+The sum of the squares of the first ten natural numbers is,
+12+22+...+102=385
+The square of the sum of the first ten natural numbers is,
+(1+2+...+10)2=552=3025
+
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025−385=2640
+.Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+'''
+
+def sum_square_difference():
+    sumOfSquare = 0
+
+    #getting sum square value
+    for i in range(1, 101):
+        sumOfSquare += i*i
+    print(sumOfSquare)
+
+    #getting suqare sum value
+    squareOfSum = 0
+    for i in range(1, 101):
+        squareOfSum +=  1
+    squareOfSum = squareOfSum * squareOfSum
+
+    print(squareOfSum - sumOfSquare)
+
+#sum_square_difference()
+
+'''
+Problem 7
+10001st prime
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+What is the 10 001st prime number?
+
+'''
+
+def isPrime(n):
+    if n < 2: return "Neither prime, nor composite"
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# returns the nth prime number
+def nthPrime(n):
+    numberOfPrimes = 0
+    prime = 1
+
+    while numberOfPrimes < n:
+        prime += 1
+        if isPrime(prime):
+            numberOfPrimes += 1
+    return prime
+
+print(nthPrime(10001))
